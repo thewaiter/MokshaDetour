@@ -54,11 +54,11 @@ group { name: "e/modules/clock/main";
          }
 	}
 	parts {   
-		part { name: "event"; type: RECT;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-			}
-		}
+		//~ part { name: "event"; type: RECT;
+			//~ description { state: "default" 0.0;
+				//~ color: 0 0 0 0;
+			//~ }
+		//~ }
 		part { name: "base";
 			description { state: "default" 0.0;
 				aspect: 1.0 1.0; aspect_preference: BOTH;
