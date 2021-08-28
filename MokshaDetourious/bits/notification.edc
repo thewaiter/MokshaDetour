@@ -38,6 +38,7 @@
           mouse_events: 0;
           type: TEXT;
           effect: OUTLINE_SOFT_SHADOW;
+          scale: 1;
           description 
           {
             rel1.to: "base";
