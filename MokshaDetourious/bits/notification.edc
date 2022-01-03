@@ -98,20 +98,16 @@
 } 
  
 group {
-	name: "e/modules/notification/main";
-	//alias: "e/modules/notification/main/alpha";
-	data {
+   name: "e/modules/notification/main";
+   //alias: "e/modules/notification/main/alpha";
+   data {
         item: "app_icon_max" "48 48";
         item: "shaped" "1";
-	}
+   }
    parts {
      part { "clip"; type: RECT;
          scale: 1;
          desc { "default";
-            rel1.relative: 0.0 0.0;
-            rel2.relative: 1.0 0.75;
-         }
-         desc { "show";
             rel1.relative: 0.0 0.0;
             rel2.relative: 1.0 1.0;
          }
@@ -380,42 +376,36 @@ group {
          source: "theme";
          action: STATE_SET "default" 0.0;
          target: "act1_btn";
-         target: "clip";
       }
       program {
          signal: "e,button2,hide";
          source: "theme";
          action: STATE_SET "default" 0.0;
          target: "act2_btn";
-         target: "clip";
       }
       program {
          signal: "e,button3,hide";
          source: "theme";
          action: STATE_SET "default" 0.0;
          target: "act3_btn";
-         target: "clip";
       }
       program {
          signal: "e,button1,show";
          source: "theme";
          action: STATE_SET "show" 0.0;
          target: "act1_btn";
-         target: "clip";
       }
       program {
          signal: "e,button2,show";
          source: "theme";
          action: STATE_SET "show" 0.0;
          target: "act2_btn";
-         target: "clip";
       }
       program {
          signal: "e,button3,show";
          source: "theme";
          action: STATE_SET "show" 0.0;
          target: "act3_btn";
-         target: "clip";
       }
 //      program {
 //         signal: "notification,new"; source: "notification";
