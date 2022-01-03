@@ -123,14 +123,6 @@ group {
             image.border: 12 12 12 12;
          }
       }
-      part { name: "bg";
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            image.normal: "images/window-border_bt5.png";
-            image.border: 12 12 12 12;
-            rel.to: "base";
-         }
-      }
       part { name: "titleclip"; type: RECT;
          clip_to: "clip";
          description { state: "default" 0.0;
