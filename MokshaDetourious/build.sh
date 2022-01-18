@@ -1,3 +1,3 @@
 #!/bin/sh
-edje_cc $@ -id . -fd . main.edc -o ../MokshaDetourious.edj
-chmod 644 ../MokshaDetourious.edj
+edje_cc $@ -id . -fd . main.edc -o ../MokshaDetour.edj
+chmod 644 ../MokshaDetour.edj
