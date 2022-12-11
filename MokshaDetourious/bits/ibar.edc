@@ -189,9 +189,9 @@ group { name: "e/modules/ibar/menu";
          description { state: "default" 0.0;
             rel1.to: "sizer";
             rel2.to: "sizer";
-            image.normal: "images/ibar_im0.png";
-			image.border: 5 5 5 5;
-			color: 0 0 0 128;
+            image.normal: "images/dialog_im0.png";
+            image.border: 5 5 5 5;
+            //~ color: 0 0 0 128;
          }
       }
       part { name: "e.box"; type: BOX;
@@ -220,7 +220,7 @@ group { name: "e/modules/ibar/menu";
          action: STATE_SET "default" 0.0;
          target: "sizer";
          target: "clip";
-         transition: SINUSOIDAL 0.2;
+         //~ transition: SINUSOIDAL 0.2;
          after: "show2";
       }
       program { name: "show2";
@@ -231,7 +231,7 @@ group { name: "e/modules/ibar/menu";
          action: STATE_SET "hidden" 0.0;
          target: "sizer";
          target: "clip";
-         transition: SINUSOIDAL 0.2;
+         //~ transition: SINUSOIDAL 0.2;
          after: "hide2";
       }
       program { name: "hide2";
@@ -247,14 +247,14 @@ group { name: "e/modules/ibar/menu/item";
          description { state: "default";
             rel1.offset: -3 3;
             rel2.offset: 2 -2;
-            image.normal: "images/exebuf_im0.png";
-			image.border: 4 4 5 5;
-            color: 255 255 255 150;
+            image.normal: "images/menu_im2.png";
+            image.border: 4 4 5 5;
+            //~ color: 255 255 255 150;
             visible: 0;
             link.base: "e,state,unfocused" "e";
             link.transition: ACCEL 0.1;
          }
-         description { state: "focus";
+         description { state: "focused";
             inherit: "default";
             visible: 1;
             color: 255 255 255 210;
@@ -290,23 +290,23 @@ group { name: "e/modules/ibar/menu/item";
             rel2.offset: 2 -3;
             align: 0.0 0.5;
             aspect: 1.0 1.0; aspect_preference: BOTH;
-            min: 48 48;
-            max: 48 48;
+            min: 32 32;
+            max: 32 32;
          }
       }
-      part { name: "shadow"; mouse_events: 0;
-         clip_to: "clip";
-         description { state: "default" 0.0;
-            image.normal: "images/shadow_small.png";
-			image.border: 7 7 7 7;
-            image.middle: 0;
-            rel1.to: "e.swallow.icon";
-            rel1.offset: -4 -4;
-            rel2.to: "e.swallow.icon";
-            rel2.offset: 3 3;
-            fill.smooth: 0;
-         }
-      }
+      //~ part { name: "shadow"; mouse_events: 0;
+         //~ clip_to: "clip";
+         //~ description { state: "default" 0.0;
+            //~ image.normal: "images/shadow_small.png";
+            //~ image.border: 7 7 7 7;
+            //~ image.middle: 0;
+            //~ rel1.to: "e.swallow.icon";
+            //~ rel1.offset: -4 -4;
+            //~ rel2.to: "e.swallow.icon";
+            //~ rel2.offset: 3 3;
+            //~ fill.smooth: 0;
+         //~ }
+      //~ }
       part { name: "glow"; mouse_events: 0;
          clip_to: "clip";
          description { state: "default" 0.0;
@@ -334,23 +334,18 @@ group { name: "e/modules/ibar/menu/item";
          }
       }
       part { name: "e.text.title"; type: TEXT; mouse_events: 0;
-         effect: SHADOW BOTTOM;
+         effect: TEXT_EFFECT;
          scale: 1;
          clip_to: "clip";
          description { state: "default" 0.0;
             rel1.to_x: "icon";
             rel1.relative: 1.0 0.0;
             rel1.offset: 3 0;
-            rel2.offset: -3 -3;
-            align: 0.0 0.0;
+            rel2.offset: -3 -1;
+            align: 0.0 0.5;
             min: 128 0;
-            color: 255 255 255 255;
-            text { font: FN; size: 10;
-               text: "window name thingy";
-               min: 0 1;
-               align: 0.0 0.5;
-               text_class: "textblock_style2";
-            }
+            TEXT_COLOR;
+            TEXT_NORMAL("menu_item", 0.0 0.5, 0 1);
          }
       }
       part { name: "icon_clip"; type: RECT;
@@ -376,7 +371,7 @@ group { name: "e/modules/ibar/menu/item";
          signal: "mouse,in"; source: "event";
          action: STATE_SET "focus" 0.0;
          //~ target: "e.swallow.icon";
-         target: "base";
+         //~ target: "base";
          target: "icon_clip";
          target: "glow";
          transition: ACCELERATE 0.2;
@@ -385,7 +380,7 @@ group { name: "e/modules/ibar/menu/item";
          signal: "mouse,out"; source: "event";
          action: STATE_SET "default" 0.0;
          target: "e.swallow.icon";
-         target: "base";
+         //~ target: "base";
          target: "icon_clip";
          target: "glow";
          transition: DECELERATE 0.2;
