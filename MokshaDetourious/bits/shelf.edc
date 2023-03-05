@@ -1,267 +1,96 @@
 
 group {
-	name: "e/shelf/default/base";
+	name: "e/shelf/default/base"; nomouse;
 	//mouse_events: 0;
 	data {
 		item: "shaped" "0";
 		item: "hidden_state_size" "2";
 		// item: "instant_delay" "60.0";
 	}
-	parts {
+   script {
+      public message(Msg_Type:type, id, ...) {
+         new val = getarg(2);
+         if ((type == MSG_INT_SET) && (id == 0))
+            custom_state(PART:"e.swallow.content", "default", 0.0);
+         if ((type == MSG_INT_SET) && (id == 1))
+            custom_state(PART:"e.swallow.content", "vert", 0.0);
+         set_state_val(PART:"e.swallow.content", STATE_REL1_OFFSET, val, val);
+         set_state_val(PART:"e.swallow.content", STATE_REL2_OFFSET, 0 - val, 0 - val);
+         set_state(PART:"e.swallow.content", "custom", 0.0);
+      }
+   }
+   parts {
+      part { name: "bg"; type: IMAGE;
+         description { state: "default" 0.0;
+              image {
+               normal: "images/shelf_def_im0.png";
+               border: 8 8 8 8;
+              }
+         }
+         description { state: "vert" 0.0;
+             image {
+               normal: "images/shelf_def_im1.png";
+               border: 8 8 8 8;
+              }
+         }
+      }
+      part { name: "border"; type: RECT;
+         insert_before: "bg";
+         scale: 1;
+         description {
+            state: "default" 0.0;
+            rel1.offset: -1 -3;
+            rel2.offset: 1 1;
+            color_class: "shelf_border_default";
+         }
+      }
+      part { name: "e.swallow.content"; type: SWALLOW; mouse;
+         description { state: "default" 0.0;
+            rel1.offset: 1 0;
+            rel1.relative: 0.0 0.0;
+            rel1.to_x: "bg";
+            rel2.offset: 0 0;
+            rel2.to_x: "bg";
+            rel2.relative: 1.0 1.0;
+         }
+         description { state: "vert" 0.0;
+            rel1.offset: 0 1;
+            rel1.relative: 0.0 0.0;
+            rel1.to_y: "bg";
+            rel2.offset: 1 0;
+            rel2.to_y: "bg";
+            rel2.relative: 1.0 1.0;
+         }
+      }
 
-		part {
-			name: "base";
-			type: IMAGE;
-			mouse_events: 0;
-			description {
-				state: "default" 0.0; //~ top
-				image {
-					normal: "images/shelf_def_im0.png";
-					border: 4 4 3 3;
-				}
-				color_class: "shelf_base";
-				FILL(0 0, 0 6);
-			}
-			description {
-				state: "top_left" 0.0;
-				inherit: "default" 0.0;
-				FILL(-16 -6,16 6)
-			}
-			description {
-				state: "top_right" 0.0;
-				inherit: "default" 0.0;
-				FILL(0 -6, 16 6);
-			}
-			description {
-				state: "top" 0.0;
-				inherit: "default" 0.0;
-				FILL(0 -6, 0 6);
-			}
-			description {
-				state: "bottom_left" 0.0;
-				inherit: "default" 0.0;
-				FILL(-16 0, 16 6);
-			}
-			description {
-				state: "bottom_right" 0.0;
-				inherit: "default" 0.0;
-				FILL(0 0, 16 6);
-			}
-			description {
-				state: "left" 0.0;
-				inherit: "default" 0.0;
-				rel1.offset: 0 -2;
-				rel2.offset: -1 0;
-				image {
-					normal: "images/shelf_def_im1.png";
-					border: 3 2 3 2;
-				}
-				color_class: "shelf_base";
-				FILL(-6 0, 6 0);
-			}
-			description {
-				state: "left_top" 0.0;
-				inherit: "default" 0.0;
-				image {
-					normal: "images/shelf_def_im1.png";
-					border: 3 2 3 2;
-				}
-				color_class: "shelf_base";
-				FILL(-6 -16, 6 16);
-			}
-			description {
-				state: "left_bottom" 0.0;
-				inherit: "default" 0.0;
-				image {
-					normal: "images/shelf_def_im1.png";
-					border: 3 2 3 2;
-				}
-				color_class: "shelf_base";
-				FILL(-6 0, 6 16);
-			}
-			description {
-				state: "right" 0.0;
-				inherit: "default" 0.0;
-				rel1.offset: 0 -2;
-				rel2.offset: -1 0;
-				image {
-					normal: "images/shelf_def_im2.png";
-					border: 2 3 3 2;
-				}
-				color_class: "shelf_base";
-				FILL(0 0, 6 0);
-			}
-			description {
-				state: "right_top" 0.0;
-				inherit: "default" 0.0;
-				image {
-					normal: "images/shelf_def_im2.png";
-					border: 2 3 3 2;
-				}
-				color_class: "shelf_base";
-				FILL(0 -16, 6 16);
-			}
-			description {
-				state: "right_bottom" 0.0;
-				inherit: "default" 0.0;
-				image {
-					normal: "images/shelf_def_im2.png";
-					border: 2 3 3 2;
-				}
-				color_class: "shelf_base";
-				FILL(0 0, 6 16);
-			}
-		}
+      programs  {
+#define ORIENT_SATE(_ORIENT, _STATE) \
+         program { \
+            signal: "e,state,orientation,"_ORIENT; source: "e"; \
+            action: STATE_SET _STATE 0.0; \
+            target: "bg"; \
+            target: "e.swallow.content"; \
+         }
+      }
+      ORIENT_SATE("top", "default")
+      ORIENT_SATE("top_left", "default")
+      ORIENT_SATE("top_right", "default")
+      ORIENT_SATE("bottom", "default")
+      ORIENT_SATE("bottom_left", "default")
+      ORIENT_SATE("bottom_right", "default")
+      ORIENT_SATE("left", "vert")
+      ORIENT_SATE("left_top", "vert")
+      ORIENT_SATE("left_bottom", "vert")
+      ORIENT_SATE("right", "vert")
+      ORIENT_SATE("right_top", "vert")
+      ORIENT_SATE("right_bottom", "vert")
+#undef ORIENT_SATE
+   }
+}
 
-		part {
-			name: "e.swallow.content";
-			type: SWALLOW;
-			description {
-				state: "default" 0.0; //~ this state corresponds to the top
-				rel1 { 
-					relative: 0.0 0.0; 
-					offset: 3 2; 
-				}
-				rel2 { 
-					relative: 1.0 1.0; 
-					offset: 0 0; 
-				}
-			}
-			description {
-				state: "top" 0.0;
-				rel1 { 
-					relative: 0.0 0.0; 
-					offset: 2 0; 
-				}
-				rel2 { 
-					relative: 1.0 1.0; 
-					offset: -4 -3; 
-				}
-			}
-			description {
-				state: "left" 0.0;
-				rel1 { 
-					relative: 0.0 0.0; 
-					offset: 1 3; 
-				}
-				rel2 { 
-					relative: 1.0 1.0; 
-					offset: -3 -4; 
-				}
-			}
-			description {
-				state: "right" 0.0;
-				rel1 { 
-					relative: 0.0 0.0; 
-					offset: 2 3; 
-				}
-				rel2 { 
-					relative: 1.0 1.0; 
-					offset: -2 -4; 
-				}
-			}
-			description {
-				state: "bottom_left" 0.0;
-				inherit: "default" 0.0;
-				rel1 { 
-					relative: 0.0 0.0; 
-					offset: 3 2; 
-				}
-				rel2 { 
-					relative: 1.0 1.0; 
-					offset: -4 -3; 
-				}
-			}
-			description {
-				state: "bottom_right" 0.0;
-				inherit: "default" 0.0;
-				rel1 { 
-					relative: 0.0 0.0; 
-					offset: 3 2; 
-				}
-				rel2 { 
-					relative: 1.0 1.0; 
-					offset: -4 -3; 
-				}
-			}
-			description {
-				state: "top_left" 0.0;
-				inherit: "default" 0.0;
-				rel1 { 
-					relative: 0.0 0.0; 
-					offset: 2 0; 
-				}
-				rel2 { 
-					relative: 1.0 1.0; 
-					offset: -4 -3; 
-				}
-			}
-			description {
-				state: "top_right" 0.0;
-				inherit: "default" 0.0;
-				rel1 { 
-					relative: 0.0 0.0; 
-					offset: 2 0; 
-				}
-				rel2 { 
-					relative: 1.0 1.0; 
-					offset: -4 -3; 
-				}
-			}
-			description {
-				state: "left_top" 0.0;
-				inherit: "default" 0.0;
-				rel1 { 
-					relative: 0.0 0.0; 
-					offset: 1 3; 
-				}
-				rel2 { 
-					relative: 1.0 1.0; 
-					offset: -3 -4; 
-				}
-			}
-			description {
-				state: "left_bottom" 0.0;
-				inherit: "default" 0.0;
-				rel1 { 
-					relative: 0.0 0.0; 
-					offset: 1 3; 
-				}
-				rel2 { 
-					relative: 1.0 1.0; 
-					offset: -3 -4; 
-				}
-			}
-			description {
-				state: "right_top" 0.0;
-				inherit: "default" 0.0;
-				rel1 { 
-					relative: 0.0 0.0; 
-					offset: 2 3; 
-				}
-				rel2 { 
-					relative: 1.0 1.0; 
-					offset: -2 -4; 
-				}
-			}
-			description {
-				state: "right_bottom" 0.0;
-				inherit: "default" 0.0;
-				rel1 { 
-					relative: 0.0 0.0; 
-					offset: 2 3; 
-				}
-				rel2 { 
-					relative: 1.0 1.0; 
-					offset: -2 -4; 
-				}
-			}
-		}
-	}
 //	programs {
 //#include "shelf_programs.edc"
 //	}
-}
 group {
 	name: "e/shelf/default/inset";
 	parts {
@@ -342,10 +171,10 @@ group {
 			description {
 				state: "default" 0.0;
 				rel1 { 
-					offset: 0 0; 
+					offset: 1 1; 
 				}
 				rel2 { 
-					offset: -1 -1; 
+					offset: -2 -2; 
 				}
 			}
 		}
