@@ -241,7 +241,7 @@ group { name: "e/modules/ibar/menu";
 }
 
 group { name: "e/modules/ibar/menu/item";
-   images.image: "images/shadow_small.png" COMP;
+   //~ images.image: "images/shadow_small.png" COMP;
    parts {
       part { name: "base";
          description { state: "default";

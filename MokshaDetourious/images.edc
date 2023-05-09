@@ -225,7 +225,7 @@ image: "images/wallpaper_pat4.png" COMP; /* overlay pattern 10x10 */
 //~ shelf
 image: "images/shelf_def_im0.png" COMP; /* regular orientation */
 image: "images/shelf_def_im1.png" COMP; /* left orientation */
-image: "images/shelf_def_im2.png" COMP; /* right orientation */
+//~ image: "images/shelf_def_im2.png" COMP; /* right orientation */
 image: "images/shelf_def_im3.png" COMP; /* inset */
 image: "images/shelf_def_im4.png" COMP; /* label overlay decoration */
 image: "images/shelf_def_im5.png" COMP; /* alternate */
