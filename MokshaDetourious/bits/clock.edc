@@ -530,10 +530,6 @@ group { name: "e/modules/clock/digital";
 					color: 255 255 255 255;
 				}
 			}
-      program { name: "date_clicked";
-            signal: "mouse,clicked,1*"; source: "day";
-            action: SIGNAL_EMIT "e,action,date,get" "";
-      }
 			part { name: "e.text.label";
 				type: TEXT;
 				effect: SHADOW;
