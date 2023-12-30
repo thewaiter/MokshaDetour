@@ -798,7 +798,7 @@ group {
 				}
 				rel2 {
 					relative: 1.0 1.0;
-					offset: -5 -1;
+					offset: -5 15;
 				}
 				color_class: "fileman_icon_label_selected";
 				text {
