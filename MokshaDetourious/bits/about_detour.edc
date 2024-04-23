@@ -1,8 +1,8 @@
 
 group {
 	name: "e/theme/about";
-	min: 299 341;
-	max: 299 341;
+	min: 299 351;
+	max: 299 351;
 	data {
 		item: "borderless" "1";
 	}
