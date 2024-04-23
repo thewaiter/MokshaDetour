@@ -25,10 +25,20 @@ group {
                 rel2.relative: 1.0 1.0;
                 image.normal: "images/frame_im0.png";
                 image.border: 9 8 8 8;
+                
 				color_class: "dialog_base";
 			}
         }
-
+        part { name: "top";
+         description { state: "default" 0.0;
+            image.normal: "images/dialog_im0.png";
+            rel1.offset: 3 4;
+            rel2.to_y: "e.text.label";
+            rel2.offset: -4 -2;
+            fill.smooth: 0;
+            color:  225 225 225 255;
+         }
+      }
         part {
             name: "e.swallow.content";
             type: SWALLOW;
@@ -38,7 +48,7 @@ group {
                     to: "frame";
                     to_y: "e.text.label";
                     relative: 0.0 0.0;
-                    offset: 10 14;
+                    offset: 10 20;
                 }
                 rel2 {
                     to: "frame";
@@ -60,7 +70,7 @@ group {
                 fixed: 0 1;
                 rel1 {
                     relative: 0.0 0.0;
-                    offset: 16 10;
+                    offset: 16 4;
                 }
                 rel2 {
                     relative: 1.0 0.0;
