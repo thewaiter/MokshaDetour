@@ -1,8 +1,8 @@
 
 group {
 	name: "e/theme/about";
-	min: 299 351;
-	max: 299 351;
+	min: 400 451;
+	max: 400 451;
 	data {
 		item: "borderless" "1";
 	}
@@ -198,7 +198,6 @@ group {
 				TEXT_BOLD("button", 0.5 0.5, 1 1);
 				text.text: "Close";
 				text.ellipsis: -1;
-				
 			}
 			description {
 				state: "clicked" 0.0;
@@ -304,7 +303,7 @@ group {
 				TEXT_COLOR;
 				TEXT_NORMAL("label_title", 0.5 0.5, 1 1);
 				text.text: "Version "VERSION_STRING"";
-				text.ellipsis: -1;				
+				text.ellipsis: -1;
 			}
 		}
 
@@ -370,7 +369,7 @@ group {
 				}
 				text {
 					style: "about_detour";
-					text: "detourious is developed by Hannes Janetzek [<lighter>jeffdameth</lighter>], based on detour by Alberto Castro [<lighter>boykot tokyo</lighter>] et al. Porting to E19 by Elias Tchastikov.<\n><\n>detourious is licensed under the BSD Artistic License.<br><br>Enjoy! <-><subliminal>Tricks of the Guild. [2003-2009]</subliminal>";
+					text: "Detourious developed by Hannes <lighter>jeffdameth</lighter> Janetzek, based on detour by Alberto <lighter>boykot tokyo</lighter> Castro.<\n>Moksha port by Štefan <lighter>the_waiter</lighter> Uram.<\n>Porting to E19 by Elias Tchastikov.<\n><\n>Detourious is licensed under the BSD Artistic License.<br><br>Enjoy! <-><subliminal>Tricks of the Guild. [2003-2009]</subliminal>";
 				}
 			}
 		}
