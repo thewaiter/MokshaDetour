@@ -99,29 +99,29 @@
 		target: "urgent2";						\
 	}											\
 	program { name: "shade_hide";					\
-         action: STATE_SET "hidden" 0.0;			\
-         target: "client_clip";						\
-    }												\
-    program {										\
-			signal: "e,state,shading"; source: "e";	\
-			action: STATE_SET "shaded" 0.0;			\
-			target: "e.swallow.client";				\
+		action: STATE_SET "hidden" 0.0;			\
+		target: "client_clip";						\
 	}												\
 	program {										\
-			signal: "e,state,unshaded"; source: "e";\
-			action: STATE_SET "default" 0.0;		\
-			target: "e.swallow.client";				\
+		signal: "e,state,shading"; source: "e";	\
+		action: STATE_SET "shaded" 0.0;			\
+		target: "e.swallow.client";				\
 	}												\
 	program {										\
-         signal: "e,state,shadow,on"; source: "e";	\
-         action: STATE_SET "default" 0.0;			\
-         target: "shadow_clip";						\
-    }												\
-    program {										\
-         signal: "e,state,shadow,off"; source: "e";	\
-         action: STATE_SET "hidden" 0.0;			\
-         target: "shadow_clip";						\
-    }												\
+		signal: "e,state,unshaded"; source: "e";\
+		action: STATE_SET "default" 0.0;		\
+		target: "e.swallow.client";				\
+	}												\
+	program {										\
+		signal: "e,state,shadow,on"; source: "e";	\
+		action: STATE_SET "default" 0.0;			\
+		target: "shadow_clip";						\
+	}												\
+	program {										\
+		signal: "e,state,shadow,off"; source: "e";	\
+		action: STATE_SET "hidden" 0.0;			\
+		target: "shadow_clip";						\
+	}												\
 
 #define BORDER_int_PROGRAMS()					\
 	program {									\
