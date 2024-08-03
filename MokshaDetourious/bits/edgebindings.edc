@@ -31,8 +31,8 @@ group { name: "e/modules/conf_edgebindings/selection";
             rel2.offset: 9 5;
             rel2.to: "e.text.selection";
             image.normal: "images/ibar_im0.png";
-			image.border: 5 5 5 5;
-			color: 0 0 0 128;
+            image.border: 5 5 5 5;
+            color: 0 0 0 128;
             fill.smooth: 0;
             fixed: 1 1;
          }
@@ -55,8 +55,8 @@ group { name: "e/modules/conf_edgebindings/selection";
       }
       part { name: "shadow"; mouse_events: 0;
          description { state: "default" 0.0;
-			image.normal: "images/spectrum_im0.png";
-			image.border: 7 7 7 7;
+            image.normal: "images/spectrum_im0.png";
+            image.border: 7 7 7 7;
             image.middle: 0;
             rel1.to: "bg";
             rel2.to: "bg";

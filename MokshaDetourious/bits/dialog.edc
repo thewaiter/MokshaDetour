@@ -1,33 +1,27 @@
-
 group {
     name: "e/widgets/dialog/main";
-
     parts {
         part {
             name: "dialog_bg";
             type: IMAGE;
             mouse_events: 0;
-
             description {
                 state: "default" 0.0;
                 image.normal: "images/dialog_im0.png";
                 image.border: 0 0 3 1;
-				color_class: "dialog_base";
+                color_class: "dialog_base";
             }
         }
-
         part {
             name: "dialog_bg2";
             type: RECT;
             mouse_events: 0;
-
-			description {
-				state: "default" 0.0;
-				color: 0 0 0 20;
-			}
-		}
-
-		part {
+            description {
+                state: "default" 0.0;
+                color: 0 0 0 20;
+            }
+        }
+        part {
             name: "e.swallow.icon";
             type: SWALLOW;
             description {
@@ -45,8 +39,7 @@ group {
                 }
             }
         }
-
-		part {
+        part {
             name: "e.swallow.content";
             type: SWALLOW;
             description {
@@ -56,15 +49,14 @@ group {
                     relative: 1.0 0.0; 
                     offset: 1 4; 
                 }
-                rel2 { 
+                rel2 {
                     to_y: "e.swallow.buttons"; 
                     relative: 1.0 0.0; 
                     offset: -5 -9; 
                 }
             }
         }
-
-		part {
+        part {
             name: "e.swallow.buttons";
             type: SWALLOW;
             description {
@@ -94,10 +86,10 @@ group {
             mouse_events: 0;
             description {
                 state: "default" 0.0;
-                rel1 { 
+                rel1 {
                     offset: 8 15; 
                 }
-                rel2 { 
+                rel2 {
                     offset: -9 0; 
                 }
                 text {

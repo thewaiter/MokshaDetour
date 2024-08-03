@@ -186,7 +186,7 @@
 styles {
 	style {
 		name: "textblock";
-		base: "font="FONT" font_size="TEXT_SIZE" align=left color=#070707";
+		base: "font="FONT" font_size="TEXT_SIZE" align=center color=#070707";
 		tag:  "hilight" "+ font="FONT_BOLD" color=#3c3c3c";
 		tag:  "b" "+ font="FONT_BOLD"";
 		tag:  "br" "\n";
