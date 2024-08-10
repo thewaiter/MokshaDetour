@@ -19,7 +19,7 @@ group { name: "e/modules/conf_edgebindings/selection";
          description { state: "default" 0.0;
             min: 210 210;
             rel1.offset: 4 4;
-            rel2.relative: 0.4 1.0;
+            rel2.relative: 0.45 1.0;
             rel2.offset: -2 -5;
          }
       }
