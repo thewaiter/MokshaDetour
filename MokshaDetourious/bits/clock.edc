@@ -1,17 +1,17 @@
 group { name: "e/modules/clock/main";
-	images.image: "images/clock/clock_bg.png" COMP;		/* base image */
-	images.image: "images/clock/hour_cursor.png" COMP;
-	images.image: "images/clock/hour_cursor_shadow.png" COMP;
-	images.image: "images/clock/minutes_cursor.png" COMP;
-	images.image: "images/clock/minutes_cursor_shadow.png" COMP;
-	images.image: "images/clock/seconds_cursor.png" COMP;
-	images.image: "images/clock/seconds_cursor_shadow.png" COMP;
-	images.image: "images/cpu/tacho_knob.png" COMP;
-	min: 16 16;
-	max: 166 166;
-	script {
-		public do_seconds, tick_timer;
-      
+   images.image: "images/clock/clock_bg.png" COMP;  /* base image */
+   images.image: "images/clock/hour_cursor.png" COMP;
+   images.image: "images/clock/hour_cursor_shadow.png" COMP;
+   images.image: "images/clock/minutes_cursor.png" COMP;
+   images.image: "images/clock/minutes_cursor_shadow.png" COMP;
+   images.image: "images/clock/seconds_cursor.png" COMP;
+   images.image: "images/clock/seconds_cursor_shadow.png" COMP;
+   images.image: "images/cpu/tacho_knob.png" COMP;
+   min: 16 16;
+   max: 166 166;
+   script {
+        public do_seconds, tick_timer;
+ 
         public clock_cb(val) {
             new year, month, day, yearday, weekday, hour, minute;
             new Float:second;
@@ -53,12 +53,7 @@ group { name: "e/modules/clock/main";
             set_state(PART:"hours-sh", "custom", 0.0);
          }
 	}
-	parts {   
-		//~ part { name: "event"; type: RECT;
-			//~ description { state: "default" 0.0;
-				//~ color: 0 0 0 0;
-			//~ }
-		//~ }
+	parts {
 		part { name: "base";
 			description { state: "default" 0.0;
 				aspect: 1.0 1.0; aspect_preference: BOTH;
@@ -165,6 +160,11 @@ group { name: "e/modules/clock/main";
 				image.normal: "images/cpu/tacho_knob.png";
 			}
 		}
+		part { name: "event"; type: RECT;
+			description { state: "default" 0.0;
+				color: 0 0 0 0;
+			}
+		}
 	}
 	programs {
 		program {
@@ -183,7 +183,7 @@ group { name: "e/modules/clock/main";
 		program { name: "sec2";
 			script {
 				new tim;
-            
+
 				set_int(do_seconds, 1);
 				tim = get_int(tick_timer);
 				if (tim) {
@@ -203,7 +203,7 @@ group { name: "e/modules/clock/main";
 		program { name: "sec3";
 			script {
 				new tim;
-            
+
 				set_int(do_seconds, 0);
 				tim = get_int(tick_timer);
 				if (tim) {
@@ -403,9 +403,9 @@ group { name: "e/modules/clock/digital";
 			signal: "e,state,date,on";
 			source: "e";
 			script {
-            set_state(PART:"time-area", "show-date", 0.0);
-            set_state(PART:"e.text.today", "show-date", 0.0);
-            restart_clock();
+			set_state(PART:"time-area", "show-date", 0.0);
+			set_state(PART:"e.text.today", "show-date", 0.0);
+			restart_clock();
 			}
 		}
 		program { name: "today,hide";
@@ -414,7 +414,7 @@ group { name: "e/modules/clock/digital";
 			script {
 			set_state(PART:"time-area", "default", 0.0);
 			set_state(PART:"e.text.today", "default", 0.0);
-            restart_clock();
+			restart_clock();
 			}
 		}
 
