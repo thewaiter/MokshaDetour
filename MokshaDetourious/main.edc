@@ -208,5 +208,6 @@ collections {
 #include "bits/randr.edc"		/* screen settings module*/
 #include "bits/edgebindings.edc"
 #include "bits/mokshapreview.edc"
+#include "bits/wallpaper.edc"
 }
 
