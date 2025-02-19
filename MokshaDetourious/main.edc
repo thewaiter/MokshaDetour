@@ -43,7 +43,7 @@ data {
 	item: "theme/author"	"Alberto Castro, Hannes Janetzek, Elias Tchastikov et al.";
 	item: "theme/license"	"BSD Artistic License";
 	item: "gtk-theme"		"detourious-GTK";
-	item: "icon-theme"		"Icons-Moksha-Detour";
+	item: "icon-theme"		"MokshaDetour";
 	item: "version"			"110";
 }
 #else
