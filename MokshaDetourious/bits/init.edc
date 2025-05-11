@@ -102,7 +102,7 @@ group {
 				color: 255 255 255 255;
 				}
 		}
-		part {	 
+		part {
 			name: "e.text.title";
 			type: TEXT;
 			effect: SHADOW;
@@ -124,7 +124,7 @@ group {
 					offset: -1 -1; 
 				}
 				text {
-					text: "Welcome to Enlightenment";
+					text: "Welcome to Moksha";
 					font: "Sans:style=Bold";
 					size: 13;
 					min: 1 1;
@@ -134,7 +134,7 @@ group {
 				}
 			}
 		}
-		part {	 
+		part {
 			name: "e.text.version";
 			type: TEXT;
 			effect: SHADOW;
@@ -188,7 +188,7 @@ group {
 					offset: -1 -1; 
 				}
 				text {
-					text: "Starting Enlightenment. Please wait.";
+					text: "Starting Moksha. Please wait.";
 					font: "Sans:style=Bold";
 					size: 11;
 					min: 1 1;
@@ -199,7 +199,7 @@ group {
 			}
 		}
 		/*
-		  part {	 
+		  part {
 		  name: "e.swallow.icons";
 		  type: SWALLOW;
 		  clip_to: "splash.clip";
