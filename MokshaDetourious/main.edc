@@ -19,8 +19,8 @@ externals.external: "elm";
 
 #define PAGER_SHOW_FRAME 0
 
-#define ANIMATED_CURSOR 1	/* Mouse pointer will pulsate when inactive */
-#define ALTERNATE_CURSOR 0	/* Alternate (black) mouse pointer */
+#define ANIMATED_CURSOR 1   /* Mouse pointer will pulsate when inactive */
+#define ALTERNATE_CURSOR 0  /* Alternate (black) mouse pointer */
 
 #define EVRY_TRANSPARENT 0
 
@@ -37,6 +37,7 @@ externals.external: "elm";
 #define COLORS 0 /* 0: default, 1: darker */
 #endif
 #if (COLORS == 0)
+efl_version: 1 25;
 data {
 	item: "theme/name" 		"detourious";
 	item: "theme/version"	"0.9.0";
@@ -52,8 +53,8 @@ data {
 	item: "theme/version"	"0.9.0";
 	item: "theme/author"	"Alberto Castro, Hannes Janetzek, Elias Tchastikov et al.";
 	item: "theme/license"	"BSD Artistic License";
-	item: "gtk-theme"       "detourious-dark";
-	item: "version"         "110";
+	item: "gtk-theme"		"detourious-dark";
+	item: "version"			"125";
 }
 #endif
 
